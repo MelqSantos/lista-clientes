@@ -34,5 +34,6 @@ public class ClienteEntity {
     private AddressEntity endereco;
 
     @OneToMany(mappedBy = "id_cliente")
+    @NotNull
     private List<TelefoneEntity> listaTel;
 }

@@ -3,6 +3,7 @@ package com.clients.exceptions;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -24,5 +25,30 @@ public class ResourceExceptionHandler {
         error.setPath(request.getRequestURI());
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND.value()).body(error);
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ValidationError> methodValidation(
+            MethodArgumentNotValidException e,
+            HttpServletRequest request) {
+
+        System.out.println("MethodArgumentNotValidException");
+
+        ValidationError error = new ValidationError();
+
+        error.setTimestamp(LocalDateTime.now());
+        error.setStatus(HttpStatus.BAD_REQUEST.value());
+        error.setError("Erro de validação");
+        error.setMessage("Erro na validação dos dados da operação");
+        error.setPath(request.getRequestURI());
+
+        for (int i = 0; i < e.getBindingResult().getFieldErrors().size(); i++ ) {
+
+            String fieldName = e.getBindingResult().getFieldErrors().get(i).getField();
+            String message = e.getBindingResult().getFieldErrors().get(i).getDefaultMessage();
+            error.addError(fieldName, message);
+        }
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
 }

@@ -1,0 +1,93 @@
+<div class="container">
+
+    <h4 class="mt-4 text-secondary">Cadastro de cliente</h4>
+
+    <form [formGroup]="clientForm" class="mb-4" novalidate (ngSubmit)="onSubmit()">
+        <mat-card class="client-card">
+            <mat-card-content>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Nome Completo" formControlName="nome">
+                            <mat-error *ngIf="clientForm.controls['nome'].hasError('required')">
+                                Campo <strong>obrigatório</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="E-mail" formControlName="email">
+                            <mat-error *ngIf="clientForm.controls['email'].hasError('required')">
+                                Campo <strong>obrigatório</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Telefone principal" formControlName="telPr">
+                            <mat-error *ngIf="clientForm.controls['telPr'].hasError('required')">
+                                Campo <strong>obrigatório</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Telefone secundário" formControlName="telSec">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <input matInput #cep maxlength="5" placeholder="CEP" type="number"
+                                formControlName="cep">
+                            <mat-hint align="end">{{cep.value.length}} / 5</mat-hint>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <textarea matInput placeholder="Endereço" formControlName="address"></textarea>
+                            <mat-error *ngIf="clientForm.controls['address'].hasError('required')">
+                                Campo <strong>obrigatório</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <textarea matInput placeholder="Complemento" formControlName="complemento"></textarea>
+                            <mat-error *ngIf="clientForm.controls['complemento'].hasError('required')">
+                                Campo <strong>obrigatório</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Bairro" formControlName="bairro">
+                            <mat-error *ngIf="clientForm.controls['bairro'].hasError('required')">
+                                Campo <strong>obrigatório</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Cidade" formControlName="cidade">
+                            <mat-error *ngIf="clientForm.controls['cidade'].hasError('required')">
+                                Campo <strong>obrigatório</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" type="submit">Cadastrar</button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+
+</div>

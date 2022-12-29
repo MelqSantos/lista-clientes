@@ -1,3 +1,86 @@
 .container{
     min-height: calc(100vh - 160px);
+
+    .cards-wrapper{
+        display: flex;
+        
+        .card{
+            width: 250px;
+            height: 120px;
+            margin-top: 20px;
+            box-shadow: 2px 2px rgba($color: #000000, $alpha: .2);
+            display: flex;
+            flex-direction: row;
+
+            &:first-child, &:nth-child(2){
+                margin-right: 50px;
+            }
+
+            .info{
+                width: 70%;
+                padding: 10px 0 0 15px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                h6{
+                    color: rgba($color: #000000, $alpha: .6);
+                }
+
+                p{
+                    color: rgba($color: #000000, $alpha: .5);
+                }
+            }
+
+            .icon{
+                width: 30%;
+                text-align: end;
+                padding: 10px 10px 0 0;
+
+                img{
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+        }
+    }
+
+    .forms{
+
+        form{
+            display: flex;
+            align-items: center;
+
+            mat-form-field{
+                width: 250px !important;
+                margin-right: 50px;
+            }
+
+            mat-icon{
+                cursor: pointer;
+            }
+
+            button{
+                display: flex;
+                align-items: center;
+                height: 50px;
+                margin-bottom: 15px;
+            }
+
+        }
+        
+        ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline{
+            background-color: white;
+        }
+    }
+
+    .demo-table {
+        width: 100%;
+      }
+
+      mat-paginator{
+        display: flex;
+        justify-content: center;
+        border-bottom: 2px solid rgba($color: #000000, $alpha: .2);
+      }
 }

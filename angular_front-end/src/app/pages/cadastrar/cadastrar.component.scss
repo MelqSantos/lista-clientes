@@ -1,0 +1,33 @@
+.container{
+    min-height: calc(100vh - 160px);
+
+    .full-width {
+        width: 100%;
+      }
+      
+      .client-card {
+        min-width: 120px;
+        margin: 20px auto;
+      }
+      
+      .mat-radio-button {
+        display: block;
+        margin: 5px 0;
+      }
+      
+      .row {
+        display: flex;
+        flex-direction: row;
+        margin: 10px 0 10px 0;
+      }
+      
+      .col {
+        flex: 1;
+        margin-right: 20px;
+      }
+      
+      .col:last-child {
+        margin-right: 0;
+      }
+
+}

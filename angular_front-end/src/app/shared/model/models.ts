@@ -10,6 +10,10 @@ export class Telefone{
     id : number
     id_cliente: number
     telefone: string
+
+    constructor(telefone: string) {
+        this.telefone = telefone;
+      }
 }
 
 export class Cliente{
@@ -18,4 +22,5 @@ export class Cliente{
     email: string
     endereco: Address
     listaTel: Telefone[]
+    isActive: boolean
 }

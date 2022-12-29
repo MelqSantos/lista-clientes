@@ -36,4 +36,7 @@ public class ClienteEntity {
     @OneToMany(mappedBy = "id_cliente")
     @NotNull
     private List<TelefoneEntity> listaTel;
+
+    @Column(name = "is_active", columnDefinition = "boolean default true")
+    private boolean isActive;
 }

@@ -45,11 +45,17 @@ public class ClienteService {
     public ClienteEntity create(ClienteEntity cliente){
 
         List<TelefoneEntity> listaTel = cliente.getListaTel();
+        var resp = cliRepository.save(cliente);
+
         if(!listaTel.isEmpty()){
+
+            listaTel.forEach(el ->{
+                el.setId_cliente(resp.getId());
+            });
             telRepository.saveAll(listaTel);
         }
 
-        return cliRepository.save(cliente);
+        return resp;
     }
 
     public ClienteEntity update(int id, ClienteEntity cliente){
@@ -81,7 +87,14 @@ public class ClienteService {
                 telRepository.saveAll(cliUpdate.getListaTel());
             }
 
-            return cliRepository.save(cliUpdate);
+            var cliCreated = cliRepository.save(cliUpdate);
+
+            cliUpdate.getListaTel().forEach(el -> {
+                el.setId_cliente(cliCreated.getId());
+            });
+            telRepository.saveAll(cliUpdate.getListaTel());
+
+            return cliCreated;
         } else {
             return null;
         }

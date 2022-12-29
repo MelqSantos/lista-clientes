@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Cliente } from '../model/models';
+import { Cep, Cliente } from '../model/models';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +12,14 @@ export class ClienteService {
   constructor(private http : HttpClient) { }
 
   url = environment.urlApi;
+  viaCepUrl = 'https://viacep.com.br/ws'
 
   getAll():Observable<Cliente[]>{
     return this.http.get<Cliente[]>(`${this.url}/clients`)
+  }
+
+  getAddress(cep: string): Observable<Cep>{
+    return this.http.get<Cep>(`${this.viaCepUrl}/${cep}/json`)
   }
 
   create(cliente: Cliente):Observable<Cliente>{

@@ -20,7 +20,16 @@ export class Cliente{
     id: number
     nome: string
     email: string
+    isActive: boolean
     endereco: Address
     listaTel: Telefone[]
-    isActive: boolean
 }
+
+export class Cep    {
+    cep: string
+    logradouro: string 
+    complemento: string
+    bairro: string
+    localidade: string 
+    uf: string
+  }

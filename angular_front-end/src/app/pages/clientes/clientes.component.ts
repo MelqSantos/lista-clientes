@@ -3,7 +3,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { ClienteService } from 'src/app/shared/services/cliente.service';
-import { Cliente } from 'src/app/shared/model/models';
+import { Cep, Cliente } from 'src/app/shared/model/models';
 
 export interface PeriodicElement {
   name: string;
@@ -30,6 +30,7 @@ export class ClientesComponent implements OnInit {
   }
 
   clientList : Cliente[] = [];
+  cep : Cep = new Cep();
 
   public pesquisar(){
 
@@ -88,7 +89,7 @@ export class ClientesComponent implements OnInit {
     {
       columnDef: 'buttons',
       header: 'Ações',
-      cell: (element: Cliente) => `${"Botões"}`,
+      cell: (element: Cliente) => `Botões`,
     },
   ];
   dataSource : MatTableDataSource<Cliente>;

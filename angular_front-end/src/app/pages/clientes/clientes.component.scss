@@ -67,13 +67,22 @@
         }
     }
 
-    .demo-table {
-        width: 100%;
-      }
-
       mat-paginator{
         display: flex;
         justify-content: center;
         border-bottom: 2px solid rgba($color: #000000, $alpha: .2);
+      }
+
+      table {
+        width: 100%;
+      }
+      
+      .mat-form-field {
+        font-size: 14px;
+        width: 100%;
+      }
+      
+      td, th {
+        width: 16,6%;
       }
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
-import { MatDialog } from '@angular/material/dialog';
 import { ClienteService } from 'src/app/shared/services/cliente.service';
 import { Cep, Cliente } from 'src/app/shared/model/models';
 
@@ -29,6 +28,9 @@ export class ClientesComponent implements OnInit {
     this.getAll();
   }
 
+  displayedColumns: string[] = ['id', 'nome', 'telefone', 'email', 'endereco', 'status', 'acoes'];
+  dataSource: MatTableDataSource<Cliente>;
+
   clientList : Cliente[] = [];
   cep : Cep = new Cep();
 
@@ -39,7 +41,7 @@ export class ClientesComponent implements OnInit {
   public getAll(){
     this.service.getAll().subscribe((resp: Cliente[]) => {
       this.clientList = resp;
-      this.dataSource.data = resp
+      this.dataSource.data = resp; 
     }, 
     error => {
       if (error.status == 503) {
@@ -54,45 +56,5 @@ export class ClientesComponent implements OnInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
-
-  columns = [
-    {
-      columnDef: 'id',
-      header: 'ID.',
-      cell: (element: Cliente) => `${element.id}`,
-    },
-    {
-      columnDef: 'nome',
-      header: 'Nome',
-      cell: (element: Cliente) => `${element.nome}`,
-    },
-    {
-      columnDef: 'tel',
-      header: 'Telefone',
-      cell: (element: Cliente) => `${element.listaTel[0].telefone}`,
-    },
-    {
-      columnDef: 'email',
-      header: 'E-mail',
-      cell: (element: Cliente) => `${element.email}`,
-    },
-    {
-      columnDef: 'address',
-      header: 'Endereço',
-      cell: (element: Cliente) => `${element.endereco.cidade}`,
-    },
-    {
-      columnDef: 'status',
-      header: 'Situação',
-      cell: (element: Cliente) => `${element.active}`,
-    },
-    {
-      columnDef: 'buttons',
-      header: 'Ações',
-      cell: (element: Cliente) => `Botões`,
-    },
-  ];
-  dataSource : MatTableDataSource<Cliente>;
-  displayedColumns = this.columns.map(c => c.columnDef);
 
 }

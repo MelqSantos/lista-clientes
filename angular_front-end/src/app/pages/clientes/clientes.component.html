@@ -50,25 +50,59 @@
         </form>
     </section>
 
-    <section class="mt-2 mb-5">
+    <section>
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource">
 
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
-            <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
-                <th mat-header-cell *matHeaderCellDef>
-                    {{column.header}}
-                </th>
-                <td mat-cell *matCellDef="let row">
-                    {{column.cell(row)}}
-                </td>
-            </ng-container>
+                <!-- ID Column -->
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                    <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+                </ng-container>
 
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
+                <!-- Progress Column -->
+                <ng-container matColumnDef="nome">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+                    <td mat-cell *matCellDef="let row"> {{row.nome}} </td>
+                </ng-container>
 
-        <mat-paginator [length]="100" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 50]" aria-label="Select page">
-        </mat-paginator>
+                <!-- Name Column -->
+                <ng-container matColumnDef="telefone">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Telefone </th>
+                    <td mat-cell *matCellDef="let row"> {{row.listaTel[0].telefone}} </td>
+                </ng-container>
 
+                <!-- Fruit Column -->
+                <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> E-mail </th>
+                    <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+                </ng-container>
+
+                <!-- Fruit Column -->
+                <ng-container matColumnDef="endereco">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Endereço </th>
+                    <td mat-cell *matCellDef="let row"> {{row.endereco.cidade}} </td>
+                </ng-container>
+
+                <!-- Fruit Column -->
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+                    <td mat-cell *matCellDef="let row"> {{row.active}} </td>
+                </ng-container>
+
+                <!-- Fruit Column -->
+                <ng-container matColumnDef="acoes">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Ações </th>
+                    <td mat-cell *matCellDef="let row"> Botões </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+        </div>
     </section>
 
 

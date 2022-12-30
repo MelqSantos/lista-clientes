@@ -37,6 +37,6 @@ public class ClienteEntity {
     @NotNull
     private List<TelefoneEntity> listaTel;
 
-    @Column(name = "is_active", columnDefinition = "boolean default true")
-    private boolean isActive;
+    @Column(name = "is_active")
+    private boolean isActive = true;
 }

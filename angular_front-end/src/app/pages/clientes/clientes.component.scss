@@ -1,10 +1,10 @@
-.container{
+.container {
     min-height: calc(100vh - 160px);
 
-    .cards-wrapper{
+    .cards-wrapper {
         display: flex;
-        
-        .card{
+
+        .card {
             width: 250px;
             height: 120px;
             margin-top: 20px;
@@ -12,32 +12,33 @@
             display: flex;
             flex-direction: row;
 
-            &:first-child, &:nth-child(2){
+            &:first-child,
+            &:nth-child(2) {
                 margin-right: 50px;
             }
 
-            .info{
+            .info {
                 width: 70%;
                 padding: 10px 0 0 15px;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
 
-                h6{
+                h6 {
                     color: rgba($color: #000000, $alpha: .6);
                 }
 
-                p{
+                p {
                     color: rgba($color: #000000, $alpha: .5);
                 }
             }
 
-            .icon{
+            .icon {
                 width: 30%;
                 text-align: end;
                 padding: 10px 10px 0 0;
 
-                img{
+                img {
                     width: 40px;
                     height: 40px;
                 }
@@ -45,44 +46,76 @@
         }
     }
 
-    .forms{
+    .forms {
 
-        form{
+        form {
             display: flex;
             align-items: center;
 
-            mat-form-field{
+            mat-form-field {
                 width: 250px !important;
                 margin-right: 50px;
             }
 
-            mat-icon{
+            mat-icon {
                 cursor: pointer;
             }
 
         }
-        
-        ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline{
+
+        ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
             background-color: white;
         }
     }
 
-      mat-paginator{
+    mat-paginator {
         display: flex;
         justify-content: center;
         border-bottom: 2px solid rgba($color: #000000, $alpha: .2);
-      }
+    }
 
-      table {
+    table {
         width: 100%;
-      }
-      
-      .mat-form-field {
+
+        .status {
+            display: flex;
+            align-items: center;
+            width: 80%;
+            border-radius: 10px;
+            border: solid 1px rgba($color: #000000, $alpha: .2);
+            padding: 5px;
+
+            .bullet {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: green;
+                margin: 0 10px 0 5px;
+            }
+        }
+
+        mat-icon {
+            cursor: pointer;
+        }
+
+        .info{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            mat-icon{
+                margin-right: 35%;
+            }
+        }
+    }
+
+    .mat-form-field {
         font-size: 14px;
         width: 100%;
-      }
-      
-      td, th {
-        width: 16,6%;
-      }
+    }
+
+    td,
+    th {
+        width: 16, 6%;
+    }
 }

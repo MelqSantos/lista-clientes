@@ -20,7 +20,7 @@ export class Cliente{
     id: number
     nome: string
     email: string
-    isActive: boolean
+    active: boolean
     endereco: Address
     listaTel: Telefone[]
 }

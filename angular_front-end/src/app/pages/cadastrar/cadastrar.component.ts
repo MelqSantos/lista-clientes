@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Cliente, Telefone, Address, Cep } from 'src/app/shared/model/models';
 import { ClienteService } from 'src/app/shared/services/cliente.service';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 
 @Component({
   selector: 'app-cadastrar',
@@ -12,7 +13,8 @@ export class CadastrarComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private service: ClienteService) { }
+    private service: ClienteService,
+    private toastr: NotificationService) { }
 
   ngOnInit(): void {
   }
@@ -43,13 +45,16 @@ export class CadastrarComponent implements OnInit {
     this.service.create(this.cliente).subscribe((resp: Cliente) => {
       this.cliente = resp;
 
-      alert('Usuário cadastrado!')
+      this.toastr.showSuccess('Usuário cadastrado!', 'Sucesso')
     }, 
     error => {
       if (error.status == 400) {
-        alert('Favor verificar os campos')
+        this.toastr.showError('Favor verificar os campos', `Erro ${error.status}`)
         console.log(error)
-      }
+      } else
+       if (error.status == 503){
+        this.toastr.showError('Servidor indisponível', `Erro ${error.status}`)
+       }
     });
   }
 

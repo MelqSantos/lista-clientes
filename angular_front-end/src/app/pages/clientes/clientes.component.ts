@@ -84,7 +84,7 @@ export class ClientesComponent implements OnInit {
     {
       columnDef: 'status',
       header: 'Situação',
-      cell: (element: Cliente) => `${element.isActive}`,
+      cell: (element: Cliente) => `${element.active}`,
     },
     {
       columnDef: 'buttons',

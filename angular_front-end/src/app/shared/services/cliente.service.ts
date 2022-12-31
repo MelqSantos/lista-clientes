@@ -22,9 +22,18 @@ export class ClienteService {
     return this.http.get<Cep>(`${this.viaCepUrl}/${cep}/json`)
   }
 
+  getByEmail(email: string): Observable<Cliente[]>{
+    return this.http.get<Cliente[]>(`${this.url}/clients/email/${email}`)
+  }
+
+  getById(id: number): Observable<Cliente>{
+    return this.http.get<Cliente>(`${this.url}/clients/${id}`)
+  }
+
   create(cliente: Cliente):Observable<Cliente>{
     return this.http.post<Cliente>(`${this.url}/clients`, cliente)
   }
+
 
 
 }

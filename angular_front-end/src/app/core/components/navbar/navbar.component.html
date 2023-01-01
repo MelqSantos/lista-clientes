@@ -3,3 +3,6 @@
     <a routerLink="/clientes">Clientes</a>
     <a routerLink="/cadastrar">Cadastrar</a>
 </mat-toolbar>
+<div *ngIf="loaderService.isLoading | async" class="loader-container">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>

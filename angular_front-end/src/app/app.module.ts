@@ -7,6 +7,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { ToastrModule } from 'ngx-toastr';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,8 +20,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { CadastrarComponent } from './pages/cadastrar/cadastrar.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EditarComponent } from './pages/editar/editar.component';
+import { LoaderInterceptor } from './shared/components/loader/loader.interceptor';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,7 @@ import { EditarComponent } from './pages/editar/editar.component';
     NavbarComponent,
     FooterComponent,
     CadastrarComponent,
-    EditarComponent
+    EditarComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,9 +49,12 @@ import { EditarComponent } from './pages/editar/editar.component';
     MatCardModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatProgressBarModule,
     ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

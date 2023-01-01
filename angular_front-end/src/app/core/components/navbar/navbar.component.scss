@@ -20,3 +20,10 @@ mat-toolbar{
     }
 
 }
+
+.loader-container{
+    position: fixed;
+    width: 100%;
+    height: 15px;
+    z-index: 99;
+}

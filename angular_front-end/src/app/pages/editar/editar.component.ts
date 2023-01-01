@@ -27,6 +27,7 @@ export class EditarComponent implements OnInit {
   isActive : boolean;
 
   ngOnInit(): void {
+    window.scroll(0,0)
     this.getById(this.idUser);
   }
 

@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import { Cep, Cliente } from '../model/models';
 
 @Injectable({
@@ -11,7 +10,7 @@ export class ClienteService {
 
   constructor(private http : HttpClient) { }
 
-  url = environment.urlApi;
+  url = 'https://lista-clientes.up.railway.app';
   viaCepUrl = 'https://viacep.com.br/ws'
 
   getAll():Observable<Cliente[]>{

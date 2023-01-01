@@ -19,6 +19,7 @@ export class CadastrarComponent implements OnInit {
     private route: Router) { }
 
   ngOnInit(): void {
+    window.scroll(0,0)
   }
 
   cliente: Cliente = new Cliente();

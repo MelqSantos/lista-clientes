@@ -45,6 +45,7 @@ public class ClienteService {
     public ClienteEntity create(ClienteEntity cliente){
 
         List<TelefoneEntity> listaTel = cliente.getListaTel();
+        cliente.setActive(true);
         var resp = cliRepository.save(cliente);
 
         if(!listaTel.isEmpty()){
@@ -84,6 +85,8 @@ public class ClienteService {
                 cliUpdate.setEmail(cliente.getEmail() != null ? cliente.getEmail() : cliUpdate.getEmail() );
                 cliUpdate.setEndereco(addressUpdate);
                 cliUpdate.setListaTel(cliente.getListaTel() != null ? cliente.getListaTel() : cliUpdate.getListaTel());
+                cliUpdate.setActive(cliente.getActive());
+                telRepository.deleteByIdCliente(id);
                 telRepository.saveAll(cliUpdate.getListaTel());
             }
 

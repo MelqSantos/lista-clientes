@@ -38,5 +38,5 @@ public class ClienteEntity {
     private List<TelefoneEntity> listaTel;
 
     @Column(name = "is_active")
-    private boolean isActive = true;
+    private Boolean active = true;
 }

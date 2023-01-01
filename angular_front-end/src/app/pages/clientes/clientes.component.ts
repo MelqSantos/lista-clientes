@@ -90,7 +90,7 @@ export class ClientesComponent implements OnInit {
   public dashboard() {
     this.clientList.forEach(el => {
 
-      if (el.active) {
+      if (el.active == true) {
         this.totalActive += 1;
 
       } else {

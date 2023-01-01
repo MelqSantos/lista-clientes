@@ -34,6 +34,10 @@ export class ClienteService {
     return this.http.post<Cliente>(`${this.url}/clients`, cliente)
   }
 
+  update(id: number, cliente: Cliente):Observable<Cliente>{
+    return this.http.patch<Cliente>(`${this.url}/clients/${id}`, cliente)
+  }
+
 
 
 }

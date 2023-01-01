@@ -20,6 +20,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { CadastrarComponent } from './pages/cadastrar/cadastrar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EditarComponent } from './pages/editar/editar.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     ClientesComponent,
     NavbarComponent,
     FooterComponent,
-    CadastrarComponent
+    CadastrarComponent,
+    EditarComponent
   ],
   imports: [
     BrowserModule,

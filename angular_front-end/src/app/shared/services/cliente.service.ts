@@ -38,6 +38,10 @@ export class ClienteService {
     return this.http.patch<Cliente>(`${this.url}/clients/${id}`, cliente)
   }
 
+  delete(id: number) : Observable<Cliente>{
+    return this.http.delete<Cliente>(`${this.url}/clients/${id}`)
+  }
+
 
 
 }

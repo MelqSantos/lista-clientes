@@ -100,4 +100,14 @@ export class ClientesComponent implements OnInit {
     });
   }
 
+  public delete(id: number){
+    this.service.delete(id).subscribe((resp) => {
+      this.toastr.showSuccess('Cliente removido', 'Sucesso');
+      this.getAll();
+    },
+    error => {
+      this.toastr.showError(`${error.message}`,`Erro ${error.status}`)
+    })
+  }
+
 }

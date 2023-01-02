@@ -109,6 +109,7 @@ public class ClienteService {
 
         if(opt.isPresent()){
             cliRepository.deleteById(id);
+            telRepository.deleteByIdCliente(opt.get().getListaTel().get(0).getId_cliente());
         } else {
             throw new ObjNotFoundException("Elemento com ID " + id +" não foi localizado");
         }

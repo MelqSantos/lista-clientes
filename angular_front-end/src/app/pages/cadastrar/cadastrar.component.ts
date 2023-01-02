@@ -31,7 +31,7 @@ export class CadastrarComponent implements OnInit {
     nome: [null, Validators.required],
     email: [null, Validators.required],
     telPr: [null, Validators.required],
-    telSec: null,
+    telSec: [null, Validators.required],
     cep: [null, Validators.compose([
       Validators.required, Validators.minLength(5), Validators.maxLength(9)])
     ],

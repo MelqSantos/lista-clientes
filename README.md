@@ -12,7 +12,7 @@ Utilização da ferramenta de design Figma
 
 ## Deploy
 * **Front-end** : Foi utilizado a plataforma Netlify - [clique aqui](https://clientlist.netlify.app)
-* **Documentação da API** : [clique aqui](https://github.com/MelqSantos/lista-clientes/docs/swagger.html)
+* **Documentação da API** : pasta "docs" -> "api-doc.html"
 
 ## Instalação local
 

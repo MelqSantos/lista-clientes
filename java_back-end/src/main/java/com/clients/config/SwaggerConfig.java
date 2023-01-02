@@ -8,7 +8,6 @@ import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
-import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
 
@@ -20,18 +19,14 @@ public class SwaggerConfig {
 
         return new OpenAPI()
                 .info(new Info()
-                        .title("Finanças pessoais")
-                        .description("Sistema para controle de gastos pessoais.")
+                        .title("Lista de clientes")
+                        .description("Sistema para controle de clientes.")
                         .version("v0.0.1")
-                        .license(new License()
-                                .name("Melqui Santos")
-                                .url("https://linkedin.com/in/melquisedec-santos"))
                         .contact(new Contact()
-                                .name("Melqui Santos")
-                                .email("melqsantos96@gmail.com")))
+                                .name("Autor: Melqui Santos")))
                 .externalDocs(new ExternalDocumentation()
-                        .description("Github")
-                        .url("https://github.com/MelqSantos"));
+                        .description("Github project")
+                        .url("https://github.com/MelqSantos/lista-clientes"));
     }
 
     @Bean

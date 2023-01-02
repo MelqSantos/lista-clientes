@@ -1,11 +1,12 @@
 package com.clients.domain.repositories;
 
 import com.clients.domain.models.TelefoneEntity;
-import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+
+import javax.transaction.Transactional;
 
 @Repository
 public interface TelefoneRepository extends JpaRepository<TelefoneEntity, Integer> {

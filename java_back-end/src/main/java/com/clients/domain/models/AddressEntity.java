@@ -1,9 +1,10 @@
 package com.clients.domain.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
-import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
+
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.validation.constraints.NotBlank;
 
 @Data
 @Embeddable

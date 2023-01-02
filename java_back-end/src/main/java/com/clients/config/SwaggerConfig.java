@@ -15,24 +15,14 @@ public class SwaggerConfig {
 
     @Bean
     public OpenAPI springShopOpenAPI() {
-
         return new OpenAPI()
-                .info(new Info()
-                        .title("Lista de clientes")
-                        .description("Sistema para controle de clientes.")
+                .info(new Info().title("API lista de Clientes")
+                        .description("Controle de clientes")
                         .version("v0.0.1")
-                        .license(new License()
-                                .name("Autor: Melqui Santos")
-                                .url("https://linkedin.com/in/melquisedec-santos")))
+                        .license(new License().name("Apache 2.0").url("http://springdoc.org")))
                 .externalDocs(new ExternalDocumentation()
-                        .description("Github repo")
+                        .description("Documentação do projeto")
                         .url("https://github.com/MelqSantos/lista-clientes"));
-    }
-
-    private ApiResponse createApiResponse(String message) {
-
-        return new ApiResponse().description(message);
-
     }
 
 }
